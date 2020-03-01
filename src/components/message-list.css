@@ -1,0 +1,131 @@
+.message-list-container-loading {
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    background-color: #242F3F;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+}
+.message-list-container-loading.open {
+    z-index: 2;
+    opacity: 1;
+}
+
+.message-list-container-loading.close {
+    opacity: 0;
+}
+
+.message-list-container-loading .loader {
+    display: inline-block;
+    width: 70px;
+    height: 70px;
+    position: relative;
+    border: 4px solid #fff;
+    top: 50%;
+    animation: loader 2s infinite ease;
+}
+
+.message-list-container-loading .loader .loader-inner {
+    vertical-align: top;
+    display: inline-block;
+    width: 100%;
+    background-color: #fff;
+    animation: loader-inner 2s infinite ease-in;
+}
+
+@keyframes loader {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    25% {
+        transform: rotate(180deg);
+    }
+
+    50% {
+        transform: rotate(180deg);
+    }
+
+    75% {
+        transform: rotate(360deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+@keyframes loader-inner {
+    0% {
+        height: 0%;
+    }
+
+    25% {
+        height: 0%;
+    }
+
+    50% {
+        height: 100%;
+    }
+
+    75% {
+        height: 100%;
+    }
+
+    100% {
+        height: 0%;
+    }
+}
+
+.messages-container {
+    padding: 1em;
+}
+
+.messages-container * {
+    margin-bottom: 1em;
+}
+
+.button-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.button-container h1 {
+    color: #000000;
+}
+
+.get-messages-button, .send-message-button {
+    padding: 1.5em 0.7em;
+    cursor: pointer;
+    background-color: transparent;
+    border: 1px solid #000000;
+    font-weight: bold;
+    color: #000000;
+    outline: 1px solid #000000;
+    outline-offset: -1px;
+    transition: all 0.3s ease;
+}
+
+.get-messages-button:hover, .send-message-button:hover {
+    color: white;
+    background-color: #000000;
+}
+
+.get-messages-button:focus, .send-message-button:focus {
+    animation: pulse 0.4s;
+}
+
+@keyframes pulse {
+    from {
+        outline-color: #000000;
+        outline-offset: -1px;
+    }
+    to {
+        outline-color: white;
+        outline-offset: 0.7em;
+    }
+}

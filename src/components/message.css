@@ -1,0 +1,31 @@
+.message {
+	position: relative;
+	background: #001750;
+    border-radius: .4em;
+    padding: 1em;
+    width: auto;
+}
+
+.message * {
+    color: #ffffff;
+}
+
+.message small {
+    font-size: 0.6em;
+    color: lightgray;
+}
+
+.message:after {
+	content: '';
+	position: absolute;
+	left: 0;
+	top: 0.35em;
+	width: 0;
+	height: 0;
+	border: 1.1em solid transparent;
+	border-right-color: #001750;
+	border-left: 0;
+	border-top: 0;
+	margin-top: -0.344em;
+	margin-left: -0.687em;
+}

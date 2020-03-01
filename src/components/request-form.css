@@ -1,0 +1,144 @@
+.request-messages-container {
+    position: absolute;
+    background-color: rgba(0, 23, 80, 0.4);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: -1;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.request-messages-container.open {
+    z-index: 2;
+    opacity: 1;
+}
+
+.request-messages-container.close {
+    z-index: 2;
+    opacity: 0;
+}
+
+.request-messages-modal {
+    display: flex;
+    position: relative;
+    justify-content: flex-start;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    background-color: white;
+    border-radius: 0.3em;
+    padding: 1em;
+    width: 600px;
+}
+
+.request-messages-modal #close {
+    position: absolute;
+    right: 0.5em;
+    top: 0.5em;
+    background-color: transparent;
+    color: #ff6666;
+    border: none;
+    outline: none;
+    font-weight: bold;
+    font-size: 1.2em;
+    cursor: pointer;
+}
+
+.request-messages-modal #close:active {
+    opacity: 0.8;
+}
+
+.request-form-error {
+    display: none;
+    padding: 0.7em;
+    border-radius: 0.2em;
+    margin: 0.6em 0;
+    width: 100%;
+    background-color: #ff6666;
+}
+
+.request-form-error p {
+    color: white;
+}
+
+.request-form-error.show {
+    display: block;
+}
+
+.request-messages-modal h1 {
+    width: 100%;
+    text-align: center;
+}
+
+.request-messages-modal input {
+    width: 100%;
+    padding: 0.8em 0.4em;
+    margin: 1em 0;
+    display: inline-block;
+    outline: none;
+    box-sizing: border-box;
+}
+
+.request-messages-modal input[valid='unknown'] {
+    border: 2px solid #ccc;
+}
+
+.request-messages-modal input[valid='true'] {
+    border: 2px solid #379683;
+}
+
+.request-messages-modal input[valid='false'] {
+    border: 2px solid #ff6666;
+}
+
+.request-messages-modal input[valid='unknown']:focus {
+    outline: none;
+    box-shadow: 0 0 1.5px 1px #ccc;
+}
+
+.request-messages-modal input[valid='true']:focus {
+    outline: none;
+    box-shadow: 0 0 1.5px 1px #379683;
+}
+
+.request-messages-modal input[valid='false']:focus {
+    outline: none;
+    box-shadow: 0 0 1.5px 1px #ff6666;
+}
+
+.request-messages-modal button:last-of-type {
+    margin: 1em auto 0 auto;
+    padding: 0.5em 1.7em;
+    cursor: pointer;
+    background-color: transparent;
+    border: 1px solid #000000;
+    font-weight: bold;
+    color: #000000;
+    outline: 1px solid #000000;
+    outline-offset: -1px;
+    transition: all 0.3s ease;
+}
+
+.request-messages-modal button:last-of-type:hover {
+    color: white;
+    background-color: #000000;
+}
+
+.request-messages-modal button:last-of-type:focus {
+    color: white;
+    background-color: #000000;
+    animation: pulse 0.4s;
+}
+
+@keyframes pulse {
+    from {
+        outline-color: #000000;
+        outline-offset: -1px;
+    }
+    to {
+        outline-color: white;
+        outline-offset: 0.7em;
+    }
+}

@@ -1,0 +1,109 @@
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.form-container {
+    border-radius: 0.2em;
+    -webkit-box-shadow: 0px 0px 36px -8px #000000;
+    -moz-box-shadow: 0px 0px 36px -8px #000000;
+    box-shadow: 0px 0px 36px -8px #000000;
+    height: fit-content;
+    height: -moz-fit-content;
+    padding: 0.7em;
+    width: 35em;
+}
+
+.form-container h1 {
+    text-align: center;
+}
+.form-container form {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+}
+.form-container form button[type='submit'] {
+    display: inline-block;
+    align-self: center;
+    padding: 0.6em;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    background-color: #379683;
+    color: white;
+    border-radius: 0.4em;
+    transition: all 0.3s ease;
+}
+
+.form-container form button[type='submit']:hover {
+    opacity: 0.7;
+}
+
+.form-container form button[type='submit']:focus {
+    outline: none;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 0.8em 0.4em;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+}
+
+.login-container input[valid="unknown"] {
+    outline: none;
+    border: 1px solid #ccc;
+}
+
+.login-container input[valid="false"] {
+    outline: none;
+    border: 1px solid #ff6666;
+}
+
+.login-container input[valid="true"] {
+    outline: none;
+    border: 1px solid #379683;
+}
+
+.login-container input[valid='unknown']:focus {
+    outline: none;
+    box-shadow: 0 0 1.5px 1px #ccc;
+}
+
+.login-container input[valid='false']:focus {
+    outline: none;
+    box-shadow: 0 0 1.5px 1px #ff6666;
+}
+
+.login-container input[valid='true']:focus {
+    outline: none;
+    box-shadow: 0 0 1.5px 1px #379683;
+}
+
+.notification-container {
+    display: none;
+    padding: 0.7em;
+    border-radius: 0.2em;
+    margin: 0.6em 0;
+    width: 100%;
+    background-color: #ff6666;
+}
+
+.notification-container.show {
+    display: block;
+    width: 100%;
+}
+
+#server-error, #credentials-error {
+    display: none;
+    color: white;
+}
+
+#server-error.show, #credentials-error.show {
+    display: block;
+    color: white;
+}
