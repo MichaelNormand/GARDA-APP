@@ -5,7 +5,7 @@
     height: 100%;
     display: flex;
     justify-content: center;
-    background-color: #242F3F;
+    background-color: #242f3f;
     opacity: 0;
     transition: all 0.3s ease-in-out;
 }
@@ -98,7 +98,8 @@
     color: #000000;
 }
 
-.get-messages-button, .send-message-button {
+.get-messages-button,
+.send-message-button {
     padding: 1.5em 0.7em;
     cursor: pointer;
     background-color: transparent;
@@ -110,12 +111,14 @@
     transition: all 0.3s ease;
 }
 
-.get-messages-button:hover, .send-message-button:hover {
+.get-messages-button:hover,
+.send-message-button:hover {
     color: white;
     background-color: #000000;
 }
 
-.get-messages-button:focus, .send-message-button:focus {
+.get-messages-button:focus,
+.send-message-button:focus {
     animation: pulse 0.4s;
 }
 
@@ -127,5 +130,11 @@
     to {
         outline-color: white;
         outline-offset: 0.7em;
+    }
+}
+
+@media (max-width: 645px) {
+    .button-container h1 {
+        display: none;
     }
 }
