@@ -15,7 +15,7 @@ export default class SendForm extends React.Component {
         return (
             <div className={'send-message-container' + (this.props.open === true ? ' open' : '')}>
                 <div className="send-message-modal">
-                    <button id="close" onClick={this.handleCloseClick}>X</button>
+                    <button id="close" onClick={this.handleCloseClick}>x</button>
                     <h1>Envoi de message</h1>
                     <div className={'send-message-error' + (this.state.error === true ? ' show' : '')}>
                         <p>Veuillez remplir tous les champs.</p>

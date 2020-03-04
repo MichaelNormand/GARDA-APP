@@ -8,7 +8,7 @@ export default class Popup extends React.Component {
                 <div className={'modal' + (this.props.error === true ? ' error' : ' success')}>
                     <div className="top">
                         <p>{this.props.title}</p>
-                        <button onClose={this.handleClick}>X</button>
+                        <button onClose={this.handleClick}>x</button>
                     </div>
                     <div className="content">
                         <p>{this.props.content}</p>
