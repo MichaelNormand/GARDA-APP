@@ -1,8 +1,8 @@
 import React from 'react'
-import './form.css'
+import './login-form.css'
 import { withRouter } from 'react-router-dom'
 
-class Form extends React.Component {
+class LoginForm extends React.Component {
     constructor() {
         super()
         this.state = {
@@ -102,4 +102,4 @@ class Form extends React.Component {
     }
 }
 
-export default withRouter(Form)
+export default withRouter(LoginForm)

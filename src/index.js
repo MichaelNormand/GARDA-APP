@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
-import Form from './components/form'
+import LoginForm from './components/login-form'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import MessageList from './components/message-list'
 
@@ -9,13 +9,13 @@ ReactDOM.render(
     <BrowserRouter>
         <Switch>
             <Route exact path="/">
-                <Form />
+                <LoginForm />
             </Route>
             <Route exact path="/messages">
                 <MessageList />
             </Route>
             <Route path='*' exact={true}>
-                <Form />
+                <LoginForm />
             </Route>
         </Switch>
     </BrowserRouter>,
