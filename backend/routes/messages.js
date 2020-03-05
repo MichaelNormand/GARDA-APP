@@ -31,34 +31,50 @@ router.post('/send', (req, res) => {
             .authentication(username, password)
             .then(() => {
                 let origin = req.body.origin
-                let target = req.body.target
+                let targets = req.body.target
                 let message = req.body.message
-                if (origin === undefined || target === undefined || message === undefined) {
+                if (origin === undefined || targets === undefined || message === undefined || targets.length <= 0) {
                     res.json({ error: true })
                     return
                 }
-                axios
-                    .post(
-                        'https://api.somum.com/client_test/api/v1/messaging',
-                        {
-                            '@id': 'Michael001',
-                            from: '+' + origin,
-                            to: '+' + target,
-                            content: {
-                                '@media': 'SMS',
-                                '@type': 'text',
-                                '#text': message
-                            }
+                let body = undefined
+                if (targets.length > 1) {
+                    let destinations = targets.map((target, index) => {
+                        return { '@id': 'target-' + index, '@dest': target.value }
+                    })
+                    body = {
+                        '@id': 'Michael001',
+                        from: '+' + origin,
+                        broadcast: {
+                            dest: destinations
                         },
-                        {
-                            headers: {
-                                Authorization: 'Basic ' + Buffer.from(`${process.env.GARDA_USERNAME}:${process.env.GARDA_PASSWORD}`).toString('base64'),
-                                'Content-Type': 'application/json'
-                            }
+                        content: {
+                            '@media': 'SMS',
+                            '@type': 'text',
+                            '#text': message
                         }
-                    )
+                    }
+                } else {
+                    body = {
+                        '@id': 'Michael001',
+                        from: '+' + origin,
+                        to: '+' + targets[0].value,
+                        content: {
+                            '@media': 'SMS',
+                            '@type': 'text',
+                            '#text': message
+                        }
+                    }
+                }
+                axios
+                    .post('https://api.somum.com/client_test/api/v1/messaging', body, {
+                        headers: {
+                            Authorization: 'Basic ' + Buffer.from(`${process.env.GARDA_USERNAME}:${process.env.GARDA_PASSWORD}`).toString('base64'),
+                            'Content-Type': 'application/json'
+                        }
+                    })
                     .then(response => {
-                        if (response.data.result['@statustext'] === 'errError') {
+                        if ((response.data.broadcastrc !== undefined && response.data.broadcastrc.length <= 0) || (response.data.result !== undefined && response.data.result['@statustext'] === 'errError')) {
                             res.json({ error: true })
                             return
                         }
@@ -133,7 +149,7 @@ router.post('/', (req, res) => {
                         }
                         res.json({ error: true })
                     })
-                    .catch((error) => {
+                    .catch(error => {
                         res.json({ error: true })
                     })
             })
