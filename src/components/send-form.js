@@ -38,7 +38,7 @@ export default class SendForm extends React.Component {
                     </div>
                     <div id="targets">
                         <ul>
-                            {this.state.targets.map((target, index) => {
+                            {this.state.targets.length > 0 ? this.state.targets.map((target, index) => {
                                 return (
                                     <li>
                                         <input
@@ -59,7 +59,7 @@ export default class SendForm extends React.Component {
                                         </div>
                                     </li>
                                 )
-                            })}
+                            }) : <li><h4>Aucun numéro de téléphone ajouté.</h4></li>}
                         </ul>
                     </div>
                     <label>Message:</label>
